@@ -1,7 +1,10 @@
-This is the base Django project created for the **Introduction to Django** learning project.  
-It includes the default Django setup and will be extended with apps, models, and admin customization.
+from django.db import models
 
-## Steps Completed
-- Installed Django
-- Created project: LibraryProject
-- Ran development server successfully
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    published_date = models.DateField()
+    isbn = models.CharField(max_length=13, unique=True)
+
+    def __str__(self):
+        return f"{self.title} by {self.author}"
